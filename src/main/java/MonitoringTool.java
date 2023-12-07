@@ -1,10 +1,11 @@
-public class MonitoringTool {
+public class MonitoringTool implements Observer {
     public void CheckStatus(NetworkDevice device) {
-        // return the status of the device
-        if (device.getStatus().equals("Up")) {
-            System.out.println("The device is up");
-        } else {
-            System.out.println("The device is down");
-        }
+        // Register as observer to receive updates
+        device.registerObserver(this);
+    }
+
+    @Override
+    public void update(NetworkDevice device) {
+        // Perform actions based on the device status change
     }
 }
