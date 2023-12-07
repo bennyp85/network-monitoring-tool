@@ -1,0 +1,23 @@
+@startuml
+
+class NetworkDevice {
+  +IPAddress: String
+  +Status: String
+  --
+  +CheckStatus(): void
+}
+
+class MonitoringTool <<Observer>> {
+  +Update(device: NetworkDevice): void
+}
+
+class NetworkDeviceManager <<Subject>> {
+  +Register(device: NetworkDevice): void
+  +Unregister(device: NetworkDevice): void
+  +Notify(): void
+}
+
+NetworkDeviceManager "1" -- "*" NetworkDevice : manages
+MonitoringTool "1" -- "*" NetworkDevice : observes
+
+@enduml
