@@ -9,7 +9,7 @@ public class Main {
         // Create a new instance of the NetworkDeviceManager class
         NetworkDeviceManager manager = new NetworkDeviceManager();
         // Register the device with the manager
-        manager.addDevice(device1);
+        manager.Register(device1);
         // Create a new instance of the MonitoringTool class
         MonitoringTool tool = new MonitoringTool();
         // Register the MonitoringTool as an observer
